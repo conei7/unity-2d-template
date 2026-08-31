@@ -1,0 +1,10 @@
+{
+  "name": "Unity2DTemplate.Editor",
+  "rootNamespace": "Unity2DTemplate.Editor",
+  "references": [
+    "Unity2DTemplate.Runtime"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ]
+}
