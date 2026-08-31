@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33283e2a438b2dd4393d38c1b1797698, type: 3}
+  m_Name: AchievementCatalog
+  m_EditorClassIdentifier: Unity2DTemplate.Runtime::Unity2DTemplate.Features.AchievementCatalog
+  definitions:
+  - id: first_steps
+    title: "\u306F\u3058\u3081\u306E\u4E00\u6B69"
+    description: "Game\u30B7\u30FC\u30F3\u3092\u521D\u3081\u3066\u958B\u59CB\u3059\u308B\u3002"
+    isSecret: 0
+    icon: {fileID: 0}
+  - id: first_clear
+    title: "\u30B2\u30FC\u30E0\u30AF\u30EA\u30A2"
+    description: "Result\u30B7\u30FC\u30F3\u3078\u521D\u3081\u3066\u9032\u3080\u3002"
+    isSecret: 0
+    icon: {fileID: 0}
+  - id: extras_visited
+    title: "\u5BC4\u308A\u9053"
+    description: "Extras\u753B\u9762\u3092\u958B\u304F\u3002"
+    isSecret: 0
+    icon: {fileID: 0}

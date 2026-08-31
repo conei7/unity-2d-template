@@ -1,4 +1,8 @@
 {
   "name": "Unity2DTemplate.Runtime",
-  "rootNamespace": "Unity2DTemplate"
+  "rootNamespace": "Unity2DTemplate",
+  "references": [
+    "Unity.InputSystem",
+    "Unity.TextMeshPro"
+  ]
 }

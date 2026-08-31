@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3fca9919828e944a7ee0801ac44def, type: 3}
+  m_Name: CreditsCatalog
+  m_EditorClassIdentifier: Unity2DTemplate.Runtime::Unity2DTemplate.Features.CreditsCatalog
+  sections:
+  - heading: GAME DEVELOPMENT
+    lines:
+    - "Planning / Programming \u2014 Your Name"
+    - "Art / Sound \u2014 Your Team"
+  - heading: FONTS
+    lines:
+    - "Noto Sans JP \u2014 SIL Open Font License"
+  - heading: SPECIAL THANKS
+    lines:
+    - Thank you for playing.
