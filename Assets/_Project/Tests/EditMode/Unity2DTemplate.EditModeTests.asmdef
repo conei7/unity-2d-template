@@ -1,0 +1,13 @@
+{
+  "name": "Unity2DTemplate.EditModeTests",
+  "rootNamespace": "Unity2DTemplate.Tests.EditMode",
+  "references": [
+    "Unity2DTemplate.Runtime"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

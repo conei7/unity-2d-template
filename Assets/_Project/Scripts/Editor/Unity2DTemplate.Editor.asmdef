@@ -2,7 +2,8 @@
   "name": "Unity2DTemplate.Editor",
   "rootNamespace": "Unity2DTemplate.Editor",
   "references": [
-    "Unity2DTemplate.Runtime"
+    "Unity2DTemplate.Runtime",
+    "Unity.TextMeshPro"
   ],
   "includePlatforms": [
     "Editor"

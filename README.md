@@ -13,7 +13,7 @@ UIはすべてUnity上のSceneまたはPrefabとして通常配置していま�
 - Universal Render Pipeline（2D Renderer）
 - Input System
 - TextMesh Pro
-- [MCP for Unity](https://github.com/CoplayDev/unity-mcp)
+- [MCP for Unity](https://github.com/CoplayDev/unity-mcp) `v10.1.2`
 
 ## 新しいゲームを始める
 
@@ -26,6 +26,18 @@ UIはすべてUnity上のSceneまたはPrefabとして通常配置していま�
 
 `Library`、`Temp`、`Logs`、`UserSettings`などの生成フォルダは
 Gitで管理しません。
+
+### 複製時のチェックリスト
+
+- ゲームごとに別のリポジトリを作り、このテンプレートの`main`または安定版タグから開始する
+- Unityを閉じた状態で複製し、`Library`、`Temp`、`Logs`、`UserSettings`を持ち込まない
+- リポジトリのフォルダ名を作品ごとに一意にする
+- Player SettingsのCompany Name、Product Name、Package Nameを作品用に変更する
+- READMEのタイトルと概要を作品用に変更する
+- 最初のゲーム実装前にTest RunnerとTitleシーンのPlay確認を行う
+
+複製後は元テンプレートの`origin`へ誤ってpushしないよう、
+新しいゲーム用リポジトリを`origin`に設定してから作業を始めます。
 
 ## フォルダ構成
 
@@ -216,8 +228,31 @@ Controllerのシリアライズ配列へ追加してください。
 Dynamic・Multi Atlas構成のため、日本語全文字のSDF Atlasを
 あらかじめ保持せず、必要な文字だけを実行時に生成します。
 
+EditorでPlayしたときに生成された文字Atlasは、Play終了後に自動で消去します。
+これにより、動的キャッシュによる巨大なGit差分が残るのを防ぎます。
+必要なら`Tools > Unity 2D Template > Clear Dynamic Font Data`から手動消去できます。
+
 フォントはSIL Open Font Licenseです。ライセンスは
 `Assets/_Project/Resources/Fonts/NotoSansJP/OFL.txt`を参照してください。
+
+## 自動テスト
+
+`Assets/_Project/Tests/`にテンプレートのスモークテストがあります。
+
+- EditMode：Build Settingsの基本シーンと、シーン内のMissing Scriptを確認する
+- PlayMode：Build Settingsで有効な全シーンを実際に順番にロードする
+
+Unityの`Window > General > Test Runner`からEditMode、PlayModeを実行できます。
+テンプレートを複製した直後と、共通シーンやPrefabを変更した後に実行してください。
+
+## Unity MCPを使うとき
+
+Unity MCPは再現性を優先して`v10.1.2`へ固定しています。
+更新するときは、`Packages/manifest.json`のバージョンを変更し、
+UnityでPackage解決とコンパイルが完了した後にテストを再実行してください。
+
+複数のUnity Editorを同時にMCPで操作せず、対象プロジェクトを1つだけ開いて
+コンパイル、Console、テスト、Play Modeの確認まで順番に完了させます。
 
 ## 実装方針
 

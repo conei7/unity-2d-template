@@ -1,0 +1,10 @@
+{
+  "name": "Unity2DTemplate.PlayModeTests",
+  "rootNamespace": "Unity2DTemplate.Tests.PlayMode",
+  "references": [
+    "Unity2DTemplate.Runtime"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}
