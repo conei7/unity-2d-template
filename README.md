@@ -84,7 +84,7 @@ Title ──> Game ──> Result ──> Title
 
 ## 新しいシーンを作る
 
-共通機能が必要なシーンには、次のPrefabを通常配置します。
+共通機能が必要なシーンには、次のPrefabを追加します。
 
 - `AudioManager.prefab`
 - `GameProfile.prefab`
@@ -126,7 +126,7 @@ AudioManager.Instance.PlaySe(seClip);
 ## はい／いいえ確認ダイアログ
 
 `ConfirmationDialog.prefab`は、タイトル、本文、「はい」「いいえ」を持つ
-共通Prefabです。使用するシーンのCanvasへ通常配置して参照を渡します。
+共通Prefabです。使用するシーンのCanvasへ配置して参照を渡します。
 
 ```csharp
 confirmationDialog.Show(
@@ -143,8 +143,6 @@ confirmationDialog.Show(
 ## 統計・実績・ギャラリーの保存
 
 `GameProfile`が、シーンをまたぐ統計値と解除状態を管理します。
-汎用Singleton基底クラスは使わず、寿命が必要なクラスだけを
-具体的なSingletonにしています。
 
 ```csharp
 GameProfile.Instance.AddStatistic("enemies_defeated", 1);
@@ -176,7 +174,6 @@ GameProfile.Instance.UnlockGalleryEntry("ending_art");
 4. 表示件数が増えた場合は、`Achievements`シーンでRowを複製して配列へ登録します。
 
 実績解除時は`SettingsMenu.prefab`内のトーストが表示されます。
-ゲーム固有の達成条件は共通Managerへ集約せず、該当するゲーム処理側で判定します。
 
 ### ギャラリーを追加する
 
@@ -197,15 +194,9 @@ AudioMixerグループへ出力されます。
 
 ## UIを増やすとき
 
-統計行、実績行、ギャラリーカードはシーン上へ固定配置しています。
-必要数が増えたらUnity Editor上で既存のRowまたはSlotを複製し、
+統計行、実績行、ギャラリーカードを増やす場合は、
+Unity Editor上で既存のRowまたはSlotを複製し、
 Controllerのシリアライズ配列へ追加してください。
-
-このテンプレートでは次の方法を使用しません。
-
-- UIを表示時に`Instantiate`する
-- `new GameObject`でUIを組み立てる
-- 実行時に`AddComponent`して画面を構成する
 
 ## 機能を外す
 
@@ -243,23 +234,3 @@ EditorでPlayしたときに生成された文字Atlasは、Play終了後に自�
 
 Unityの`Window > General > Test Runner`からEditMode、PlayModeを実行できます。
 テンプレートを複製した直後と、共通シーンやPrefabを変更した後に実行してください。
-
-## Unity MCPを使うとき
-
-Unity MCPは再現性を優先して`v10.1.2`へ固定しています。
-更新するときは、`Packages/manifest.json`のバージョンを変更し、
-UnityでPackage解決とコンパイルが完了した後にテストを再実行してください。
-
-複数のUnity Editorを同時にMCPで操作せず、対象プロジェクトを1つだけ開いて
-コンパイル、Console、テスト、Play Modeの確認まで順番に完了させます。
-
-## 実装方針
-
-- UIはSceneまたはPrefabへ通常配置する
-- 必須参照は`SerializeField`でInspectorから割り当て、実行時検索で参照切れを隠さない
-- Editor構築ツールを使う場合も、生成結果をSceneまたはPrefabとして保存する
-- シーン遷移はシーン名を明示する
-- 保存に使うIDは並び順ではなく安定した文字列にする
-- Singletonはシーンをまたぐ必要がある具体的なManagerだけに使う
-- 機能ごとにシーンとControllerを分離し、不要なら外せるようにする
-- 非推奨APIや全体検索へ安易に依存しない
