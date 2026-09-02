@@ -43,6 +43,7 @@ mono_crash.*
 *.bak
 *.swp
 *~
+TestResults/
 
 # OS metadata
 .DS_Store
